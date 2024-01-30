@@ -1,0 +1,59 @@
+## API
+
+## Category
+
+### Create Category
+
+POST http://localhost:8080/category HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "Category Test 2"
+}
+
+### Get Category
+
+GET http://localhost:8080/category/0d2cc261-caf7-4798-9a22-f475745235b6 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+### Get All Categories
+
+GET http://localhost:8080/category HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+
+## Product
+
+### Create Product
+
+POST http://localhost:8080/product HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "Product 1",
+  "description": "Product Description",
+  "price": 10.2,
+  "categoryId": "0d2cc261-caf7-4798-9a22-f475745235b6",
+  "imageUrl": "image-link"
+}
+
+### Get Product By Id
+
+GET http://localhost:8080/product/94d1215e-a0e1-4cad-b74d-110f7e0b3d00 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+### Get Product By Category Id
+GET http://localhost:8080/product/category/0d2cc261-caf7-4798-9a22-f475745235b6 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+### Get All Products
+
+GET http://localhost:8080/product HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
