@@ -1,6 +1,6 @@
-# Product
+## Product
 
-## Create Product
+### Create Product
 POST http://localhost:3000/products
 Content-Type: application/json
 
@@ -9,4 +9,31 @@ Content-Type: application/json
   "price": 1000,
   "description": "Product 1 description",
   "image_url": "some image"
+}
+
+### Get Products
+GET http://localhost:3000/products
+
+
+## Order
+
+### Get Orders
+GET http://localhost:3000/orders
+
+### Create Order
+POST http://localhost:3000/orders
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "product_id": "21997e88-429c-4c56-8236-854ced93e1df",
+      "quantity": 2
+    },
+    {
+      "product_id": "16c172dd-0b5b-468c-a164-2829527f2e9a",
+      "quantity": 1
+    }
+  ],
+  "card_hash": "1234"
 }
