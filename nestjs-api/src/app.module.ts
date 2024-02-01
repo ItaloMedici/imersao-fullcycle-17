@@ -10,6 +10,7 @@ import { Product } from './products/entities/product.entity';
 import { ProductsModule } from './products/products.module';
 import { User } from './users/entities/user.entity';
 import { UsersModule } from './users/users.module';
+import { RabbitmqModule } from './rabbitmq/rabbitmq.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { UsersModule } from './users/users.module';
     OrdersModule,
     AuthModule,
     UsersModule,
+    RabbitmqModule,
   ],
   controllers: [AppController],
   providers: [AppService],
