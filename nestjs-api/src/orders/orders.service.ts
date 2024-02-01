@@ -14,7 +14,7 @@ export class OrdersService {
     private readonly productRepository: Repository<Product>,
   ) {}
 
-  async create(createOrderDto: CreateOrderDto) {
+  async create(createOrderDto: CreateOrderDto & { client_id: string }) {
     const unicProductsIds = [
       ...new Set(createOrderDto.items.map((item) => item.product_id)),
     ];
@@ -30,7 +30,7 @@ export class OrdersService {
     }
 
     const order = Order.create({
-      client_id: 1,
+      client_id: createOrderDto.client_id,
       items: createOrderDto.items.map((item) => {
         const product = products.find(
           (product) => product.id === item.product_id,
@@ -46,11 +46,16 @@ export class OrdersService {
     return await this.orderRepository.save(order);
   }
 
-  findAll() {
-    return this.orderRepository.find();
+  findAll(client_id: string) {
+    return this.orderRepository.find({
+      where: { client_id },
+      order: {
+        created_at: 'DESC',
+      },
+    });
   }
 
-  findOne(id: string) {
-    return this.orderRepository.findOne({ where: { id } });
+  findOne(id: string, client_id: string) {
+    return this.orderRepository.findOneOrFail({ where: { id, client_id } });
   }
 }
