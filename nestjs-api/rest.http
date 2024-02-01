@@ -19,10 +19,16 @@ GET http://localhost:3000/products
 
 ### Get Orders
 GET http://localhost:3000/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwic3ViIjoiNmQ0MDEwYjItZDZlNy00YzczLWI4ZDItOTgwY2UwMWI5MGRhIiwiaWF0IjoxNzA2ODE3NjMxLCJleHAiOjE3MDY4MjEyMzF9.T4UAIrRC-1Ubp66aFzvt2DTceYUQd86yUFgGLCO3-HQ
+
+### Get Order by ID
+GET http://localhost:3000/orders/03f6d1b6-451f-458a-a4cf-e805c2ec4c09
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiZTNlZGY4ZDItMDkyMi00ZWJkLWJhYzAtMTQxNzIwYmI5YjIwIiwiaWF0IjoxNzA2ODE3MzMyLCJleHAiOjE3MDY4MjA5MzJ9.obR7Kterji1JIv_V6py3nE1fZwZ7uICZANzNE7d9Ij0
 
 ### Create Order
 POST http://localhost:3000/orders
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwic3ViIjoiZTNlZGY4ZDItMDkyMi00ZWJkLWJhYzAtMTQxNzIwYmI5YjIwIiwiaWF0IjoxNzA2ODE3MzMyLCJleHAiOjE3MDY4MjA5MzJ9.obR7Kterji1JIv_V6py3nE1fZwZ7uICZANzNE7d9Ij0
 
 {
   "items": [
@@ -36,4 +42,34 @@ Content-Type: application/json
     }
   ],
   "card_hash": "1234"
+}
+
+## User
+
+### Create User
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "username": "user2",
+  "password": "1234"
+}
+
+### Get User
+GET http://localhost:3000/users/e3edf8d2-0922-4ebd-bac0-141720bb9b20
+
+
+### Get All Users 
+GET http://localhost:3000/users
+
+
+## Auth
+
+### Login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "username": "user2",
+  "password": "1234"
 }
