@@ -14,7 +14,7 @@ export enum OrderStatus {
 }
 
 export type CreateOrderCommand = {
-  client_id: number;
+  client_id: string;
   items: {
     product_id: string;
     quantity: number;
@@ -31,7 +31,7 @@ export class Order {
   total: number;
 
   @Column()
-  client_id: number; // User authenticated
+  client_id: string;
 
   @Column()
   status: OrderStatus;
